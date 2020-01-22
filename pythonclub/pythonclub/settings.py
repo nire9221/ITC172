@@ -75,13 +75,13 @@ WSGI_APPLICATION = 'pythonclub.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-   'default': {
+    'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'pythonclub',
-        'USER' : 'postgres',
+        'USER': 'postgres',
         'PASSWORD': 'rkdwlsdud3',
-        'HOST' :'localhost',
-        'PORT' :'',
+        'HOST': 'localhost',
+        'PORT': '',
 
     }
 }
