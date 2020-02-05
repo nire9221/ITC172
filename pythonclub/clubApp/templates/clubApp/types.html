@@ -7,10 +7,11 @@
      <th>Description</th>
  </tr>
  {% for t in type_list %}
-   <tr>
-       <td>{{ t.typename }}</td>
-       <td>{{ t.typedescription }}</td>
-   </tr>
+
+ <tr>
+        <td><a href="{% url 'meetingdetail' id=p.id %}">{{ p.meetingname }}</a></td>
+        <td> {{p.meetingminute }}</td>
+    </tr>
 
  {% endfor %}
 
