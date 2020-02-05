@@ -3,14 +3,21 @@
 <h1>Meeting Types</h1>
 <table class='table'>
  <tr>
-     <th>Name</th>
-     <th>Description</th>
+     <th>Meeting Title</th>
+     <th>Meeting Date</th>
+     <th>Meeting TIme</th>
+     <th>Location</th>
+     <th>Agenda</th>
  </tr>
- {% for t in type_list %}
+ {% for p in type_list %}
 
  <tr>
-        <td><a href="{% url 'meetingdetail' id=p.id %}">{{ p.meetingname }}</a></td>
-        <td> {{p.meetingminute }}</td>
+        <td><a href="{% url 'meetingdetail' id=p.id %}">{{ p.title }}</a></td>
+        <td> {{p.meetingdate }}</td>
+        <td> {{p.meetingtime }}</td>
+        <td> {{p.location }}</td>
+         <td> {{p.agenda }}</td>
+
     </tr>
 
  {% endfor %}

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Meeting, Meeting_Minutes, Resource, Event
 
 
@@ -18,13 +18,7 @@ def getminutes(request):
 
 
 def meetingdetail(request, id):
-    meetingname = get_object_or_404(gettypes, pk=id)
-    meetingtime = meetingname.getminutes
 
-    context = {
-        'meetingname': meetingname,
-        'meetingtime': meetingtime,
+    detail = get_object_or_404(Meeting, pk=id)
 
-
-    }
-    return render(request, 'clubApp/meetingdetail.html', context=context)
+    return render(request, 'clubApp/meetingdetail.html', {"detail": detail})
