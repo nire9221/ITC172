@@ -22,3 +22,8 @@ def meetingdetail(request, id):
     detail = get_object_or_404(Meeting, pk=id)
 
     return render(request, 'clubApp/meetingdetail.html', {"detail": detail})
+
+
+def getresource(request):
+    resource_list = Resource.objects.all()
+    return render(request, 'clubApp/resource.html', {'resource_list': resource_list})
