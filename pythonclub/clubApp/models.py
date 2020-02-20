@@ -10,7 +10,7 @@ class Meeting(models.Model):
     meetingdate = models.DateField()
     meetingtime = models.TimeField()
     location = models.CharField(max_length=255)
-    agenda = models.CharField(max_length=255)
+    agenda = models.TextField()
 
     def __str__(self):
         return self.meetingtype

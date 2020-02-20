@@ -13,10 +13,11 @@
  {% for p in resource_list %}
 
  <tr>
-        <td><a href="{% url 'resourceName' id=p.id %}">{{ p.resourceType }}</a></td>
+         <td>{{p.resourceName }}</a></td>
+        <td> {{p.resourceType }}</td>
         <td> {{p.url }}</td>
         <td> {{p.dateEntered }}</td>
-        <td> {{p.usdrID }}</td>
+        <td> {{p.userID }}</td>
          <td> {{p.description }}</td>
 
     </tr>
