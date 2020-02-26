@@ -29,8 +29,11 @@ class MeetingTest(TestCase):
 
 class ResourceTest(TestCase):
     def setUp(self):
+        self.test_user = User.objects.create_user(
+            username='newnew', password='what')
+
         test = Resource.objects.create(resourceName='research', resourceType='essay', url='http://wwww.w3.com',
-                                       dateEntered='2020-10-20', userId=2, description='seattle central college')
+                                       dateEntered='2020-10-20', userId=self.test_user, description='seattle central college')
         return test
 
     def test_string(self):
@@ -40,7 +43,7 @@ class ResourceTest(TestCase):
         self.assertEqual(str(test.url), 'http://wwww.w3.com')
         self.assertEqual(str(test.dateEntered), '2020-10-20')
         self.assertEqual(str(test.meetingtime), '12:00:02')
-        self.assertEqual(str(test.userId), 2)
+        self.assertEqual(str(test.userId), 'newnew')
         self.assertEqual(str(test.description), 'seattle central college')
 
     def test_table(self):
@@ -89,10 +92,14 @@ class Meeting_Form_Test(TestCase):
 
 
 class Resource_Form_Test(TestCase):
+    def test_resource_user_foreign_key(self):
+        self.test_user = User.objects.create_user(
+            username='newnew', password='what')
+
     def test_resourceform_is_valid(self):
         form = ResourceForm(
             data={'resourceName': "test", 'resourceType': "test server",
-                  'url': "http://www.w3.com", 'dateEntered': "2020-10-20",  'userId': 1, 'description': "test test"})
+                  'url': "http://www.w3.com", 'dateEntered': "2020-10-20", 'userId': self.test_user, 'description': "test test"})
         self.assertTrue(form.is_valid())
 
     def test_resourceform_empty(self):
@@ -101,9 +108,12 @@ class Resource_Form_Test(TestCase):
 
 
 class Event_Form_Test(TestCase):
+
     def test_eventform_is_valid(self):
+        self.test_user = User.objects.create_user(
+            username='newnew', password='what')
         form = EventForm(
-            data={'eventTitle': "test", 'location': "test server", 'date': "2020-10-20", 'time': "12:00:02", 'description': "seattle", 'userId': 1})
+            data={'eventTitle': "test", 'location': "test server", 'date': "2020-10-20", 'time': "12:00:02", 'description': "seattle", 'userId': self.test_user})
         self.assertTrue(form.is_valid())
 
     def test_eventform_empty(self):
@@ -115,14 +125,13 @@ class New_Meeting_authentication_test(TestCase):
     def setUp(self):
         self.test_user = User.objects.create_user(
             username='testuser1', password='P@ssw0rd1')
-        self.minute = Meeting_Minutes.objects.create(meetingId='laptop')
         self.meeting = Meeting.objects.create(meetingtype='python', title='project', meetingtime='10:20:24',
                                               meetingdate='2019-04-02', location='scc', agenda="project python final")
 
     def test_redirect_if_not_logged_in(self):
         response = self.client.get(reverse('newmeeting'))
         self.assertRedirects(
-            response, '/accounts/login/?next=/clubApp/newMeeting/')
+            response, '/accounts/login/?next=/clubApp/newmeeting')
 
     def test_Logged_in_uses_correct_template(self):
         login = self.client.login(username='testuser1', password='P@ssw0rd1')
