@@ -9,7 +9,7 @@ This project is Commune Board based on Python with Django
 * PostgreSQL
 * Bootstrap 
 
-### * Demo
+### Demo
 [![Commune Board](https://i9.ytimg.com/vi_webp/AHyonnNpUyM/mqdefault.webp?time=1610599200000&sqp=CKCW__8F&rs=AOn4CLB_iyvcEZeWd3-9Fi6WfYce802R0w)](https://youtu.be/AHyonnNpUyM "Commune Board")
 
 
