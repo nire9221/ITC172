@@ -10,7 +10,7 @@ This project is Commune Board based on Python with Django
 * Bootstrap 
 
 ### Demo
-[![Commune Board](https://i9.ytimg.com/vi_webp/AHyonnNpUyM/mqdefault.webp?time=1610599200000&sqp=CKCW__8F&rs=AOn4CLB_iyvcEZeWd3-9Fi6WfYce802R0w)](https://youtu.be/AHyonnNpUyM "Commune Board")
+[![Commune Board](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRa875XrQ9youvA1xmC-y2Vsdr58o_tY4CjeQ&usqp=CAU)](https://youtu.be/AHyonnNpUyM "Commune Board")
 
 
 ## License
